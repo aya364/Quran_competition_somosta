@@ -1,0 +1,78 @@
+for correct deploy on railway.com : 
+1- upload to gitHub 
+2-
+.................................................. 
+in app.js:
+// Root route to handle the "/" GET request
+app.get("/", (req, res) => {
+  res.send("Server is running on port " + process.env.PORT);
+});
+
+3- 
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+-----------------------------------------------------------------
+4- in package.json : "scripts": {
+    "start": "node app.js"
+}
+
+5- npm install --production
+6- node app.js
+
+4- in railway in setting after choose project : 
+- generating network (link) , dont edit port mannually 
+- in Build Command: npm install
+- Start Command: npm start 
+
+
+After making the changes in vs code to project:
+
+Commit the updates to your repository:
+- right click inside project folder -> git pash here :  
+_ git add .
+_ git commit -m "Fix server binding"
+_ git push
+
+
+
+---------------------------------------------------------------------------------------------
+for react upload on gitHub:
+- npm run build
+- git init
+- git add .
+- git commit -m "Initial commit for React app"
+- Create a new GitHub repository:
+
+Go to GitHub and create a new repository (e.g., react-frontend).
+Do not initialize it with a README, license, or gitignore, as this could cause conflicts.
+Add the remote repository: After creating the repository, you will get a URL for your GitHub repository (e.g., https://github.com/your-username/react-frontend.git). Add this URL as the remote origin
+
+- git push -u origin main
+- npm install gh-pages --save-dev
+- in package.json: "homepage": "https://your-username.github.io/react-frontend",
+                                scripts{
+                                  "predeploy": "npm run build",
+                                  "deploy": "gh-pages -d build"
+                                }
+
+- npm run deploy
+- go to settings in repo , refresh , go to pages , refresh 
+
+** if i make changes to the project make :
+ 
+//- npm run build
+//- git add .
+//- git commit -m "Updated API calls to link with Node.js backend"
+//- git subtree push --prefix build origin gh-pages
+-----
+- npm run build
+- git add . 
+- git commit -m "Your message"
+- git push origin main
+- npm run deploy
+-------------------------------------------------------------------------
+
+
+
