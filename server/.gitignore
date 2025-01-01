@@ -24,3 +24,7 @@ yarn-error.log*
 
 
 vercel.json
+
+.env
+.vercel
+dist/

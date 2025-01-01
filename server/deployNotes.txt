@@ -2,7 +2,7 @@ for correct deploy on railway.com :
 1- upload to gitHub 
 2-
 .................................................. 
-in app.js:
+in index.js:
 // Root route to handle the "/" GET request
 app.get("/", (req, res) => {
   res.send("Server is running on port " + process.env.PORT);
@@ -15,11 +15,11 @@ app.listen(PORT, "0.0.0.0", () => {
 });
 -----------------------------------------------------------------
 4- in package.json : "scripts": {
-    "start": "node app.js"
+    "start": "node index.js"
 }
 
 5- npm install --production
-6- node app.js
+6- node index.js
 
 4- in railway in setting after choose project : 
 - generating network (link) , dont edit port mannually 
@@ -71,8 +71,24 @@ Add the remote repository: After creating the repository, you will get a URL for
 - git add . 
 - git commit -m "Your message"
 - git push origin main
-- npm run deploy
+- //npm run deploy
 -------------------------------------------------------------------------
 
 
+git push -u origin main
+remote: Repository not found.
+fatal: repository 'https://github.com/aya364/somostaComptition.git/' not found
+: soluion :
+-  git remote -v 
+- git remote remove origin
+-------------------------------------------------
 
+if any new changes in react project on surge :  
+- npm run build
+- surge
+
+
+-----------------------------------------
+
+
+  also make npm start to run server folder + node index.js 
