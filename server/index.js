@@ -9,8 +9,11 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-// Enable CORS for all origins
-app.use(cors());
+
+app.use(cors({
+  origin:"https://client-ivory-psi.vercel.app/",
+  credentials: true,
+}));
 // const corsOptions = {
 //     origin: "https://mazoraqurancomp62.surge.sh",
 //     methods: "GET,POST,PUT,DELETE,OPTIONS",
